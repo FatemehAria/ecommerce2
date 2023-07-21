@@ -1,12 +1,12 @@
 import axios from "axios";
 
-export const getProducts = () => async (dispatch) => {
+export const getProducts = (id) => async (dispatch) => {
   try {
     dispatch({
       type: "loading",
       payload: { data: [], loading: true, error: "" },
     });
-    const { data } = await axios("https://fakestoreapi.com/products");
+    const { data } = await axios(`https://fakestoreapi.com/products/${id ? id : ""}`);
     console.log(data);
     dispatch({
       type: "data",

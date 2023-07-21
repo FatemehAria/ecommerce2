@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../action";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const { data, loading, error } = useSelector((state) => state.products);
   const [category, setCategory] = useState("all");
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -64,7 +66,7 @@ const Home = () => {
                   <h5 className="h-5 w-full flex justify-center items-center">
                     ${product.price}
                   </h5>
-                  <p className="flex justify-center items-center mx-auto p-3 rounded-lg border border-black my-4">Buy</p>
+                  <p className="flex justify-center items-center mx-auto p-3 rounded-lg border border-black my-4 cursor-pointer" onClick={() => navigate(`/products/${product.id}`)}>Buy</p>
                 </div>
               );
 
@@ -84,7 +86,7 @@ const Home = () => {
                   <h5 className="h-5 w-full flex justify-center items-center">
                     ${product.price}
                   </h5>
-                  <p className="flex justify-center items-center mx-auto p-3 rounded-lg border border-black my-4">Buy</p>
+                  <p className="flex justify-center items-center mx-auto p-3 rounded-lg border border-black my-4 cursor-pointer" onClick={() => navigate(`/products/${product.id}`)}>Buy</p>
                 </div>
               );
           }
