@@ -9,7 +9,7 @@ const Cart = () => {
   return (
     <div>
       {cart.map((item) => (
-        <div>
+        <div key={item.id}>
           <img src={item.image} />
           <p onClick={() => navigate(`/products/${item.id}`)}>{item.title}</p>
           <p>qty:{item.qty}</p>

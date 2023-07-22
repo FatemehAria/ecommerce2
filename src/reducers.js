@@ -14,13 +14,13 @@ export const products = (
   }
 };
 
-export const cart = (state = [] , {payload,type}) => {
+export const cart = (state = [], { payload, type }) => {
   switch (type) {
     case "add":
       return payload;
     case "remove":
-      return state.filter((item) => item.id !== payload.id);
+      return payload;
     default:
       return state;
   }
-}
+};

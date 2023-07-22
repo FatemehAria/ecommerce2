@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { addToCart } from "../action";
+import { addToCart, removeFromCart } from "../action";
 const Detail = () => {
   const [detail, setDetail] = useState([]);
   const { id } = useParams();
@@ -29,10 +29,9 @@ const Detail = () => {
           <h2>{item.title}</h2>
           <p>{item.description}</p>
           <h4>{item.price}</h4>
-          <button
-            onClick={() => (dispatch(addToCart(item)),console.log(cart))}
-          >
-            Add to cart
+          <button onClick={() => dispatch(addToCart(item))}>Add to cart</button>
+          <button onClick={() => dispatch(removeFromCart(item))}>
+            Remove From cart
           </button>
         </div>
       ))}

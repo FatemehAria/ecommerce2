@@ -35,13 +35,13 @@ const Home = () => {
         </p>
         <p
           onClick={() => setCategory("jewelery")}
-          className="hover:bg-slate-700 hover:text-white hidden md:inline-block border py-3 border-black rounded-lg px-3 cursor-pointer" 
+          className="hover:bg-slate-700 hover:text-white hidden md:inline-block border py-3 border-black rounded-lg px-3 cursor-pointer"
         >
           Jewelery
         </p>
         <p
           onClick={() => setCategory("electronics")}
-          className="hover:bg-slate-700 hover:text-white hidden md:inline-block border py-3 border-black rounded-lg px-3 cursor-pointer" 
+          className="hover:bg-slate-700 hover:text-white hidden md:inline-block border py-3 border-black rounded-lg px-3 cursor-pointer"
         >
           Electronic
         </p>
@@ -61,12 +61,17 @@ const Home = () => {
                     className="w-36 h-40 mx-auto flex justify-center items-center"
                   />
                   <h4 className="w-full h-5 flex justify-center items-center p-2 my-2">
-                    {product.title.substr(0,11)}
+                    {product.title.substr(0, 11)}
                   </h4>
                   <h5 className="h-5 w-full flex justify-center items-center">
                     ${product.price}
                   </h5>
-                  <p className="flex justify-center items-center mx-auto p-3 rounded-lg border border-black my-4 cursor-pointer" onClick={() => navigate(`/products/${product.id}`)}>Buy</p>
+                  <p
+                    className="flex justify-center items-center mx-auto p-3 rounded-lg border border-black my-4 cursor-pointer"
+                    onClick={() => navigate(`/products/${product.id}`)}
+                  >
+                    Buy
+                  </p>
                 </div>
               );
 
@@ -81,12 +86,17 @@ const Home = () => {
                     className="w-36 h-40 mx-auto flex justify-center items-center"
                   />
                   <h4 className="w-full h-5 flex justify-center items-center p-2 my-2">
-                    {product.title.substr(0,11)}
+                    {product.title.substr(0, 11)}
                   </h4>
                   <h5 className="h-5 w-full flex justify-center items-center">
                     ${product.price}
                   </h5>
-                  <p className="flex justify-center items-center mx-auto p-3 rounded-lg border border-black my-4 cursor-pointer" onClick={() => navigate(`/products/${product.id}`)}>Buy</p>
+                  <p
+                    className="flex justify-center items-center mx-auto p-3 rounded-lg border border-black my-4 cursor-pointer"
+                    onClick={() => navigate(`/products/${product.id}`)}
+                  >
+                    Buy
+                  </p>
                 </div>
               );
           }
