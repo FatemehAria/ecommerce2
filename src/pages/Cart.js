@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart, removeFromCart } from "../action";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 const Cart = () => {
+  const [total,setTotal] = useState(0);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   localStorage.setItem("cart", JSON.stringify(cart));
   const navigate = useNavigate();
-  let sum = 0;
-  const calcTotal = (item) => {
-    sum = sum + item.qty * item.price;
-    return parseInt(sum);
-  };
+
+  useEffect(() => {
+    const total = cart.reduce((acc,current) => {
+      return acc + current.price * current.qty;
+    },0);
+    setTotal(total);
+  })
+
   return (
     <div>
       {cart.map((item) => (
@@ -39,7 +43,7 @@ const Cart = () => {
           </p>
         </div>
       ))}
-      <p>Total Price:${cart.map((item) => calcTotal(item))}</p>
+      <p>Total Price:{parseFloat(total).toFixed(2)}</p>
     </div>
   );
 };
