@@ -13,7 +13,6 @@ export const products = (
       return state;
   }
 };
-
 export const cart = (state = [], { payload, type }) => {
   switch (type) {
     case "add":
