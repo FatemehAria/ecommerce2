@@ -46,10 +46,10 @@ const Nav = () => {
         </div>
         <div className="hidden lg:flex lg:gap-5 lg:justify-center lg:items-center">
           <Link
-            to="/login"
-            className={`${localStorage.getItem("token") ? "hidden" : "" } border border-black py-1 px-4 rounded-lg hover:bg-slate-700 hover:text-white font-semibold`}
+             to={`${localStorage.getItem("token") ? '/update' : '/login'}`}
+            className={`border border-black py-1 px-4 rounded-lg hover:bg-slate-700 hover:text-white font-semibold`}
           >
-            Login
+            {`${localStorage.getItem("token")  ? "Update Your Profile" : "Login" }`}
           </Link>
           <Link
             to="/register"
@@ -90,7 +90,7 @@ const Nav = () => {
       )}
 
       <div className="flex justify-evenly items-center lg:hidden">
-        <Link to="/login" className={`${localStorage.getItem("token") ? "hidden" : ""}`}>Login</Link>
+        <Link to={`${localStorage.getItem("token") ? '/update' : '/login'}`}>{`${localStorage.getItem("token")  ? "Update Your Profile" : "Login" }`}</Link>
         <Link to="/register" className={`${localStorage.getItem("token") ? "hidden" : ""}`}>Register</Link>
         <Link to="/cart">Cart</Link>
       </div>
