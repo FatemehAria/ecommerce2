@@ -47,13 +47,13 @@ const Nav = () => {
         <div className="hidden lg:flex lg:gap-5 lg:justify-center lg:items-center">
           <Link
             to="/login"
-            className="border border-black py-1 px-4 rounded-lg hover:bg-slate-700 hover:text-white font-semibold"
+            className={`${localStorage.getItem("token") ? "hidden" : "" } border border-black py-1 px-4 rounded-lg hover:bg-slate-700 hover:text-white font-semibold`}
           >
             Login
           </Link>
           <Link
             to="/register"
-            className="border border-black py-1 px-4 rounded-lg hover:bg-slate-700 hover:text-white font-semibold"
+            className={`${localStorage.getItem("token") ? "hidden" :""} border border-black py-1 px-4 rounded-lg hover:bg-slate-700 hover:text-white font-semibold`}
           >
             Register
           </Link>
@@ -90,8 +90,8 @@ const Nav = () => {
       )}
 
       <div className="flex justify-evenly items-center lg:hidden">
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
+        <Link to="/login" className={`${localStorage.getItem("token") ? "hidden" : ""}`}>Login</Link>
+        <Link to="/register" className={`${localStorage.getItem("token") ? "hidden" : ""}`}>Register</Link>
         <Link to="/cart">Cart</Link>
       </div>
       {/* Pic */}
