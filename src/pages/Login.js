@@ -15,6 +15,7 @@ const Login = () => {
       console.log(data);
       localStorage.setItem("token", JSON.stringify(data.token));
       localStorage.setItem("id", JSON.stringify(data.id));
+      navigate("/update");
     } catch (error) {
       console.log(error);
     }
@@ -23,39 +24,39 @@ const Login = () => {
     <div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-[80%] mx-auto flex flex-col justify-center items-center gap-1"
+        className="w-[60%] mx-auto flex flex-col justify-center items-center gap-1"
       >
-        <div className="w-full h-10">
+        <div className="w-full h-10 flex justify-center items-center">
           <label className="w-[5rem] inline-block">Username:</label>
           <input
             type="text"
             name="username"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
-            className="border rounded-md ml-2 outline-none px-2 py-1"
+            className="border rounded-md ml-2 outline-none px-2 py-1 w-[60%]"
           />
         </div>
 
-        <div className="w-full h-10">
+        <div className="w-full h-10 flex justify-center items-center">
           <label className="w-[5rem] inline-block">Password:</label>
           <input
             type=""
             name="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
-            className="border rounded-md ml-2 outline-none px-2 py-1"
+            className="border rounded-md ml-2 outline-none px-2 py-1 w-[60%]"
           />
         </div>
 
         <button
           onClick={() => login()}
-          className="flex justify-center items-center p-2 w-[30%] rounded-lg border border-black cursor-pointer hover:bg-slate-700 hover:text-white font-semibold"
+          className="flex justify-center items-center py-2 px-10 md:px-9 w-[10%] rounded-lg border border-black cursor-pointer hover:bg-slate-700 hover:text-white font-semibold"
         >
           Login
         </button>
         <button
           onClick={() => navigate("/register")}
-          className="flex justify-center items-center p-2 w-[30%] rounded-lg border border-black cursor-pointer hover:bg-slate-700 hover:text-white font-semibold"
+          className="flex justify-center items-center py-2 px-10 md:px-9 w-[10%] rounded-lg border border-black cursor-pointer hover:bg-slate-700 hover:text-white font-semibold"
         >
           Register
         </button>
