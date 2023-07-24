@@ -1,7 +1,6 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 
-const Register = () => {
+const Updateprofile = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -9,20 +8,23 @@ const Register = () => {
   const [lastname, setLastname] = useState("");
   const [phone, setPhone] = useState("");
 
-  const signup = async () => {
+  const update = async () => {
+    const id = JSON.parse(localStorage.getItem("id"));
     try {
-      const { data } = await axios.post("https://fakestoreapi.com/users", {
-        email,
-        username,
-        password,
-        name: {
-          firstname,
-          lastname,
-        },
-        phone,
-      });
+      const { data } = await axios.post(
+        `https://fakestoreapi.com/users/${id}`,
+        {
+          email,
+          username,
+          password,
+          name: {
+            firstname,
+            lastname,
+          },
+          phone,
+        }
+      );
       console.log(data);
-      localStorage.setItem("id" , JSON.stringify(data.id));
     } catch (error) {
       console.log(error);
     }
@@ -100,7 +102,7 @@ const Register = () => {
         </div>
 
         <button
-          onClick={() => signup()}
+          onClick={() => update()}
           className="flex justify-center items-center p-2 w-[30%] rounded-lg border border-black cursor-pointer hover:bg-slate-700 hover:text-white font-semibold"
         >
           Register
@@ -110,4 +112,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Updateprofile;
