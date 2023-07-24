@@ -53,10 +53,10 @@ const Login = () => {
           Login
         </button>
         <button
-          onClick={() => navigate("/signup")}
+          onClick={() => navigate("/register")}
           className="flex justify-center items-center p-2 w-[30%] rounded-lg border border-black cursor-pointer hover:bg-slate-700 hover:text-white font-semibold"
         >
-          Signup
+          Register
         </button>
       </form>
     </div>

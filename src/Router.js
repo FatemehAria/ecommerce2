@@ -8,7 +8,6 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Cart from "./pages/Cart";
 import Detail from "./pages/Detail";
-import Signup from "./pages/Signup";
 const Router = () => {
   return (
     <Routes>
@@ -20,7 +19,6 @@ const Router = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/signup" element={<Signup />} />
     </Routes>
   );
 };
