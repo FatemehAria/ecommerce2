@@ -17,31 +17,31 @@ const Home = () => {
       <div className="flex justify-center items-center py-5 px-3 text-sm gap-4 mx-auto">
         <p
           onClick={() => setCategory("all")}
-          className="border py-3 border-black rounded-lg px-3 flex justify-center items-center hover:bg-slate-700 hover:text-white cursor-pointer"
+          className="border py-3 border-black rounded-lg px-3 flex justify-center items-center hover:bg-slate-700 hover:text-white cursor-pointer font-semibold"
         >
           All
         </p>
         <p
           onClick={() => setCategory("men's clothing")}
-          className="border py-3 border-black rounded-lg px-3 flex justify-center items-center hover:bg-slate-700 hover:text-white cursor-pointer"
+          className="border py-3 border-black rounded-lg px-3 flex justify-center items-center hover:bg-slate-700 hover:text-white cursor-pointer font-semibold"
         >
           Men's Clothing
         </p>
         <p
           onClick={() => setCategory("women's clothing")}
-          className="border py-3 border-black rounded-lg px-3 flex justify-center items-center hover:bg-slate-700 hover:text-white cursor-pointer"
+          className="border py-3 border-black rounded-lg px-3 flex justify-center items-center hover:bg-slate-700 hover:text-white cursor-pointer font-semibold"
         >
           Women's Clothing
         </p>
         <p
           onClick={() => setCategory("jewelery")}
-          className="hover:bg-slate-700 hover:text-white hidden md:inline-block border py-3 border-black rounded-lg px-3 cursor-pointer"
+          className="hover:bg-slate-700 hover:text-white hidden md:inline-block border py-3 border-black rounded-lg px-3 cursor-pointer font-semibold"
         >
           Jewelery
         </p>
         <p
           onClick={() => setCategory("electronics")}
-          className="hover:bg-slate-700 hover:text-white hidden md:inline-block border py-3 border-black rounded-lg px-3 cursor-pointer"
+          className="hover:bg-slate-700 hover:text-white hidden md:inline-block border py-3 border-black rounded-lg px-3 cursor-pointer font-semibold"
         >
           Electronic
         </p>
@@ -60,17 +60,17 @@ const Home = () => {
                     src={product.image}
                     className="w-36 h-40 mx-auto flex justify-center items-center"
                   />
-                  <h4 className="w-full h-5 flex justify-center items-center p-2 my-2">
+                  <h4 className="w-full h-5 flex justify-center items-center p-2 my-2 font-semibold">
                     {product.title.substr(0, 11)}
                   </h4>
-                  <h5 className="h-5 w-full flex justify-center items-center">
+                  {/* <h5 className="h-5 w-full flex justify-center items-center">
                     ${product.price}
-                  </h5>
+                  </h5> */}
                   <p
-                    className="flex justify-center items-center mx-auto p-3 rounded-lg border border-black my-4 cursor-pointer"
+                    className="flex justify-center items-center mx-auto p-3 rounded-lg border border-black my-4 cursor-pointer hover:bg-slate-700 hover:text-white font-semibold"
                     onClick={() => navigate(`/products/${product.id}`)}
                   >
-                    Buy
+                    ${product.price}
                   </p>
                 </div>
               );
@@ -85,17 +85,17 @@ const Home = () => {
                     src={product.image}
                     className="w-36 h-40 mx-auto flex justify-center items-center"
                   />
-                  <h4 className="w-full h-5 flex justify-center items-center p-2 my-2">
+                  <h4 className="w-full h-5 flex justify-center items-center p-2 my-2 font-semibold">
                     {product.title.substr(0, 11)}
                   </h4>
-                  <h5 className="h-5 w-full flex justify-center items-center">
+                  {/* <h5 className="h-5 w-full flex justify-center items-center">
                     ${product.price}
-                  </h5>
+                  </h5> */}
                   <p
-                    className="flex justify-center items-center mx-auto p-3 rounded-lg border border-black my-4 cursor-pointer"
+                    className="flex justify-center items-center mx-auto p-3 rounded-lg border border-black my-4 cursor-pointer hover:bg-slate-700 hover:text-white font-semibold"
                     onClick={() => navigate(`/products/${product.id}`)}
                   >
-                    Buy
+                    ${product.price}
                   </p>
                 </div>
               );

@@ -36,13 +36,13 @@ const Detail = () => {
             <h2 className="flex justify-center items-center text-center font-semibold">
               {item.title}
             </h2>
-            <p className="leading-6">{item.description}</p>
+            <p className="leading-6 max-w-lg mx-auto">{item.description}</p>
             <h4 className="flex justify-center items-center text-center text-teal-900 font-semibold">
               ${item.price}
             </h4>
             <button
               onClick={() => (dispatch(addToCart(item)), navigate("/cart"))}
-              className="border p-2 flex justify-center items-center w-[60%] mx-auto mt-2 rounded-md bg-gray-600 text-white font-semibold"
+              className="border p-2 flex justify-center items-center w-[60%] max-w-lg mx-auto mt-2 rounded-md bg-gray-600 text-white font-semibold"
             >
              <BsFillCartPlusFill className="mr-2"/> Add to cart
             </button>
