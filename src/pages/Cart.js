@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart, removeFromCart } from "../action";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { motion } from "framer-motion";
 const Cart = () => {
   const [total, setTotal] = useState(0);
   const dispatch = useDispatch();
@@ -20,9 +21,13 @@ const Cart = () => {
   return (
     <div className="flex flex-col justify-center items-center mx-auto md:flex-row p-0 md:flex-wrap gap-2 md:max-lg:gap-10 mb-4">
       {cart.map((item) => (
-        <div
+        <motion.div
           key={item.id}
           className="border rounded-lg px-20 py-16 w-[80%] 2xl:w-[40%] lg:h-96 md:w-[40%] "
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
         >
           <img
             src={item.image}
@@ -50,14 +55,17 @@ const Cart = () => {
           <p className="h-5 w-full flex justify-center items-center font-semibold text-teal-900">
             ${item.qty * item.price}
           </p>
-        </div>
+        </motion.div>
       ))}
       {cart.length ? (
         <div className="w-full">
           <p className="w-full text-center font-semibold text-gray-500">
             Total Price:${parseFloat(total).toFixed(2)}
           </p>
-          <p className="text-center font-semibold text-gray-700 cursor-pointer" onClick={() => navigate('/checkout')}>
+          <p
+            className="text-center font-semibold text-gray-700 cursor-pointer"
+            onClick={() => navigate("/checkout")}
+          >
             Checkout
           </p>
         </div>

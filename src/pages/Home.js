@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../action";
 import { useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const Home = () => {
   const { data, loading, error } = useSelector((state) => state.products);
   const [category, setCategory] = useState("all");
@@ -62,9 +62,13 @@ const Home = () => {
             switch (category) {
               case product.category:
                 return (
-                  <div
+                  <motion.div
                     className="border rounded-lg px-20 py-16 w-[80%] 2xl:w-[20%] lg:h-96 md:w-[40%]"
                     key={product.id}
+                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
                   >
                     <img
                       src={product.image}
@@ -82,14 +86,18 @@ const Home = () => {
                     >
                       ${product.price}
                     </p>
-                  </div>
+                  </motion.div>
                 );
 
               case "all":
                 return (
-                  <div
+                  <motion.div
                     className="border rounded-lg px-20 py-16 w-[80%] 2xl:w-[20%] lg:h-96 md:w-[40%]"
                     key={product.id}
+                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
                   >
                     <img
                       src={product.image}
@@ -107,7 +115,7 @@ const Home = () => {
                     >
                       ${product.price}
                     </p>
-                  </div>
+                  </motion.div>
                 );
             }
           })}

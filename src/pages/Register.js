@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,16 +23,20 @@ const Register = () => {
         phone,
       });
       console.log(data);
-      localStorage.setItem("id" , JSON.stringify(data.id));
+      localStorage.setItem("id", JSON.stringify(data.id));
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <div>
-      <form
+      <motion.form
         onSubmit={(e) => e.preventDefault()}
         className="w-[60%] mx-auto flex flex-col justify-center items-center gap-1"
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
       >
         <div className="w-full h-10 flex justify-center items-center">
           <label className="w-[5rem] inline-block">Username:</label>
@@ -101,12 +105,12 @@ const Register = () => {
         </div>
 
         <button
-          onClick={() => (signup(),navigate('/login'))}
+          onClick={() => (signup(), navigate("/login"))}
           className="flex justify-center items-center py-2 px-10 md:px-9 w-[10%] rounded-lg border border-black cursor-pointer hover:bg-slate-700 hover:text-white font-semibold"
         >
           Register
         </button>
-      </form>
+      </motion.form>
     </div>
   );
 };

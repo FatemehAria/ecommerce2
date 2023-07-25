@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -22,9 +23,13 @@ const Login = () => {
   };
   return (
     <div>
-      <form
+      <motion.form
         onSubmit={(e) => e.preventDefault()}
         className="w-[60%] mx-auto flex flex-col justify-center items-center gap-1"
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
       >
         <div className="w-full h-10 flex justify-center items-center">
           <label className="w-[5rem] inline-block">Username:</label>
@@ -60,7 +65,7 @@ const Login = () => {
         >
           Register
         </button>
-      </form>
+      </motion.form>
     </div>
   );
 };
