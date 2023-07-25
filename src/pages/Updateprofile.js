@@ -13,7 +13,7 @@ const Updateprofile = () => {
     const id = JSON.parse(localStorage.getItem("id"));
     try {
       const { data } = await axios.put(
-        `https://fakestoreapi.com/users/${id ? id : "" }`,
+        `https://fakestoreapi.com/users/${id ? id : ""}`,
         {
           email,
           username,
@@ -32,6 +32,7 @@ const Updateprofile = () => {
   };
   return (
     <div>
+      <h2 className="flex justify-center items-center text-center text-xl font-bold border-b w-[60%] mx-auto pt-11 pb-3 mb-4">Update Profile</h2>
       <form
         onSubmit={(e) => e.preventDefault()}
         className="w-[60%] mx-auto flex flex-col justify-center items-center gap-1"

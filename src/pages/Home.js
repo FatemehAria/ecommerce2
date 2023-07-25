@@ -14,7 +14,8 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <div className="flex justify-center items-center py-5 px-3 text-sm gap-4 mx-auto">
+      <h1 className="flex justify-center items-center text-center text-xl font-bold border-b w-[60%] mx-auto pt-11 pb-3">Latest Products</h1>
+      <div className="flex justify-center items-center py-5 px-3 lg:text-lg text-sm gap-4 mx-auto">
         <p
           onClick={() => setCategory("all")}
           className="border py-3 border-black rounded-lg px-3 flex justify-center items-center hover:bg-slate-700 hover:text-white cursor-pointer font-semibold"
@@ -47,7 +48,7 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="flex flex-col justify-center items-center mx-auto md:flex-row p-0 md:flex-wrap gap-2 md:max-lg:gap-10 mb-4">
+      <div className="flex flex-col justify-center items-center mx-auto md:flex-row p-0 md:flex-wrap gap-2 md:max-lg:gap-10 mb-4 lg:text-xl text-sm">
         {data.map((product) => {
           switch (category) {
             case product.category:

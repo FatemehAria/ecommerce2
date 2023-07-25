@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -8,7 +9,7 @@ const Register = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [phone, setPhone] = useState("");
-
+  const navigate = useNavigate();
   const signup = async () => {
     try {
       const { data } = await axios.post("https://fakestoreapi.com/users", {
@@ -100,7 +101,7 @@ const Register = () => {
         </div>
 
         <button
-          onClick={() => signup()}
+          onClick={() => (signup(),navigate('/login'))}
           className="flex justify-center items-center py-2 px-10 md:px-9 w-[10%] rounded-lg border border-black cursor-pointer hover:bg-slate-700 hover:text-white font-semibold"
         >
           Register
