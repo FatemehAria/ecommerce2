@@ -11,6 +11,7 @@ import Detail from "./pages/Detail";
 import Updateprofile from "./pages/Updateprofile";
 import Auth from "./pages/Auth";
 import Auth2 from "./pages/Auth2";
+import Chekout from "./pages/Chekout";
 const Router = () => {
   return (
     <Routes>
@@ -19,10 +20,32 @@ const Router = () => {
       <Route path="/products/:id" element={<Detail />} />
       <Route path="/contactus" element={<Contact />} />
       <Route path="/aboutus" element={<About />} />
-      <Route path="/login" element={<Auth2><Login /></Auth2>} />
-      <Route path="/register" element={<Auth2><Register /></Auth2>} />
+      <Route
+        path="/login"
+        element={
+          <Auth2>
+            <Login />
+          </Auth2>
+        }
+      />
+      <Route
+        path="/register"
+        element={
+          <Auth2>
+            <Register />
+          </Auth2>
+        }
+      />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/update" element={<Auth><Updateprofile /></Auth>} />
+      <Route
+        path="/update"
+        element={
+          <Auth>
+            <Updateprofile />
+          </Auth>
+        }
+      />
+      <Route path="/checkout" element={<Chekout />} />
     </Routes>
   );
 };

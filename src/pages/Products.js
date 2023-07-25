@@ -11,8 +11,9 @@ const Products = () => {
   useEffect(() => {
     dispatch(getProducts());
   }, []);
-  return loading ? (
-    <span class="loader"></span>
+  return <div>
+    {loading ? (
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
   ) : (
     <div className="flex flex-col justify-center items-center mx-auto md:flex-row p-0 md:flex-wrap gap-4 md:max-lg:gap-10 mb-4 mt-1">
       {data.map((product) => (
@@ -35,7 +36,7 @@ const Products = () => {
         </div>
       ))}
     </div>
-  );
-};
-
+  )}
+  </div>
+}
 export default Products;

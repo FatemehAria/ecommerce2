@@ -22,11 +22,11 @@ const Cart = () => {
       {cart.map((item) => (
         <div
           key={item.id}
-          className="border rounded-lg px-20 py-16 w-[80%] 2xl:w-[20%] lg:h-96 md:w-[40%]"
+          className="border rounded-lg px-20 py-16 w-[80%] 2xl:w-[40%] lg:h-96 md:w-[40%] "
         >
           <img
             src={item.image}
-            className="w-36 h-40 mx-auto flex justify-center items-center"
+            className="w-40 h-40 mx-auto flex justify-center items-center"
           />
           <p
             onClick={() => navigate(`/products/${item.id}`)}
@@ -52,7 +52,20 @@ const Cart = () => {
           </p>
         </div>
       ))}
-      {cart.length ? <p className="w-full text-center font-semibold text-gray-500">Total Price:${parseFloat(total).toFixed(2)}</p> : <p className="w-full text-center font-semibold text-gray-500">Cart Is Empty!</p>}
+      {cart.length ? (
+        <div className="w-full">
+          <p className="w-full text-center font-semibold text-gray-500">
+            Total Price:${parseFloat(total).toFixed(2)}
+          </p>
+          <p className="text-center font-semibold text-gray-700 cursor-pointer" onClick={() => navigate('/checkout')}>
+            Checkout
+          </p>
+        </div>
+      ) : (
+        <p className="w-full text-center font-semibold text-gray-500">
+          Cart Is Empty!
+        </p>
+      )}
     </div>
   );
 };
